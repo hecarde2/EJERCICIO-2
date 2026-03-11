@@ -5,24 +5,28 @@ heroes = [
     {"nombre": "Superman", "universo": "DC", "poder": "Fuerza", "nivel": 98}
 ]
 
+# Mostrar héroes
 print("Lista de héroes:")
-for i, heroe in enumerate(heroes):
-    print(i, heroe["nombre"], "-", heroe["universo"], "-", heroe["poder"], "- Nivel:", heroe["nivel"])
+for i, heroe in enumerate(heroes, start=1):
+    print(i, heroe["nombre"], "-", heroe["universo"], "- Nivel:", heroe["nivel"])
 
-
+# Crear equipo
 equipo = []
-cantidad = int(input("¿Cuántos héroes quieres en tu equipo? "))
 
-for _ in range(cantidad):
-    opcion = int(input("Elige el número del héroe: "))
+while True:
+    opcion = int(input("Elige el número del héroe (0 para terminar): "))
+    
+    if opcion == 0:
+        break
+    
     equipo.append(heroes[opcion - 1])
 
-
+# Mostrar equipo
 print("\nTu equipo:")
-for i, h in enumerate(equipo):
-    print(i, h["nombre"], "- Nivel:", h["nivel"])
+for i, h in enumerate(equipo, start=1):
+    print(i, h["nombre"], "-", h["universo"], "- Nivel:", h["nivel"])
 
-# Contar Marvel y DC en el equipo
+# Contar Marvel y DC
 marvel = 0
 dc = 0
 
@@ -35,6 +39,6 @@ for h in equipo:
 print("\nHéroes de Marvel en tu equipo:", marvel)
 print("Héroes de DC en tu equipo:", dc)
 
-# Nivel total del equipo
+# Nivel total
 nivel_total = sum(h["nivel"] for h in equipo)
 print("Nivel total del equipo:", nivel_total)
