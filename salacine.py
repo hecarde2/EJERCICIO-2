@@ -36,4 +36,4 @@ while opcion != 2:
             print("Ese asiento ya está ocupado")
 
     elif opcion == 2:
-        print("Gracias por usar la sala de cine")
+        print("TE ESPERAMOS")
